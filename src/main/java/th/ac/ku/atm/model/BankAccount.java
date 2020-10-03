@@ -1,5 +1,9 @@
 package th.ac.ku.atm.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BankAccount {
 
     private int id;
@@ -41,7 +45,13 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "BankAccount{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", type='" + type + '\'' +
+                ", balance=" + balance +
+                '}';
     }
+
 }
 
