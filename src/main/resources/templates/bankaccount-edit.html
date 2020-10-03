@@ -9,6 +9,7 @@
             th:action="@{/bankaccount/edit/{id}(id=${bankAccount.id})}"
             th:object="${bankAccount}"
             method="POST">
+        <input type="hidden" name="id" value="-1"/>
 
         <div class="form-group">
             <label for="inputId">Id</label>
