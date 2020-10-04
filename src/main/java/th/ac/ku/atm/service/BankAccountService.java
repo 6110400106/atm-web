@@ -2,6 +2,7 @@ package th.ac.ku.atm.service;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.client.RestTemplate;
 import th.ac.ku.atm.model.BankAccount;
 
@@ -53,11 +54,11 @@ public class BankAccountService {
         return response.getBody();
     }
 
-    public void editBankAccount(BankAccount bankAccount) {
-        String url = "http://localhost:8091/api/bankaccount/" +
-                bankAccount.getId();
-        restTemplate.put(url, bankAccount);
-    }
+//    public void editBankAccount(BankAccount bankAccount) {
+//        String url = "http://localhost:8091/api/bankaccount/" +
+//                bankAccount.getId();
+//        restTemplate.put(url, bankAccount);
+//    }
 
     public void deleteBankAccount(BankAccount bankAccount) {
         String url = "http://localhost:8091/api/bankaccount/" +
@@ -65,5 +66,16 @@ public class BankAccountService {
         restTemplate.delete(url, bankAccount);
     }
 
+    public void depositBankAccount(BankAccount bankAccount) {
+        String url = "http://localhost:8091/api/bankaccount/deposit/" +
+                bankAccount.getId();
+        restTemplate.put(url, bankAccount);
+    }
+
+    public void withdrawBankAccount(BankAccount bankAccount) {
+        String url = "http://localhost:8091/api/bankaccount/withdraw/" +
+                bankAccount.getId();
+        restTemplate.put(url, bankAccount);
+    }
 
 }
